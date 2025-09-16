@@ -1,11 +1,3 @@
-document.getElementById("items-column").remove();
-document.getElementById("app").classList.remove("app", "grid");
-document.getElementById("navigation").style.display="none";
-document.getElementById("editor-column").style.height="100vh";
-
-// document.getElementById("editor-title-bar").style.display="flex";
-// document.getElementById("note-title-editor").style.marginRight="5rem";
-
 // Hole das Element mit der ID 'editor-title-bar'
 const titleBar = document.getElementById("editor-title-bar");
 
@@ -71,3 +63,12 @@ button.classList.add("modern-button");
 
 // Füge den Button als erstes Kind des Elements 'editor-title-bar' hinzu
 titleBar.prepend(button);
+
+
+// Button click Event
+document.getElementById("items-column").remove();
+document.getElementById("app").classList.remove("app", "grid");
+document.getElementById("navigation").style.display="none";
+document.getElementById("editor-column").style.height="100vh";
+
+// But with revertion
