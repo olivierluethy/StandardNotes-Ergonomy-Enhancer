@@ -6,6 +6,7 @@ function ensureButtonExists() {
   if (!existingButton) {
     // Erstelle den Button nur, wenn er noch nicht existiert
     const button = document.createElement("button");
+    button.title="Close Sidenav";
 
     // Erstelle die 3 Striche für das Burger-Menü
     const bar1 = document.createElement("span");
@@ -42,8 +43,10 @@ function ensureButtonExists() {
       bar.style.transition = "all 0.3s ease"; // Sanfte Übergänge für Transformation
     });
 
-    // Füge das Klick-Event zum Button hinzu
+    // Zustand für das Umschalten (ob die Änderungen angewendet sind oder nicht)
     let isToggled = false;
+
+    // Füge das Klick-Event zum Button hinzu
     button.addEventListener("click", () => {
       const itemsColumn = document.getElementById("items-column");
       const appElement = document.getElementById("app");
@@ -62,6 +65,8 @@ function ensureButtonExists() {
 
         // Setze isToggled auf true, damit beim nächsten Klick die Änderungen rückgängig gemacht werden
         isToggled = true;
+
+        button.title="Open Sidenav";
       } else {
         // Wenn bereits umgeschaltet, mache die Änderungen rückgängig
         if (itemsColumn) {
@@ -74,6 +79,8 @@ function ensureButtonExists() {
 
         // Setze isToggled zurück auf false
         isToggled = false;
+
+        button.title="Close Sidenav";
       }
     });
 
