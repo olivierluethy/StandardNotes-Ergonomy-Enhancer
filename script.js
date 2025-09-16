@@ -39,6 +39,43 @@ bars.forEach(bar => {
   bar.style.transition = "all 0.3s ease"; // Sanfte Übergänge für Transformation
 });
 
+// Zustand für das Umschalten (ob die Änderungen angewendet sind oder nicht)
+let isToggled = false;
+
+// Füge das Klick-Event zum Button hinzu
+button.addEventListener("click", () => {
+  const itemsColumn = document.getElementById("items-column");
+  const appElement = document.getElementById("app");
+  const navigationElement = document.getElementById("navigation");
+  const editorColumn = document.getElementById("editor-column");
+
+  if (!isToggled) {
+    // Wenn noch nicht umgeschaltet, führe diese Änderungen aus
+    if (itemsColumn) {
+      itemsColumn.style.display = "none"; // Verstecke das 'items-column'-Element
+    }
+
+    appElement.classList.remove("app", "grid"); // Entferne Klassen von 'app'
+    navigationElement.style.display = "none"; // Verstecke das 'navigation'-Element
+    editorColumn.style.height = "100vh"; // Setze Höhe von 'editor-column'
+
+    // Setze isToggled auf true, damit beim nächsten Klick die Änderungen rückgängig gemacht werden
+    isToggled = true;
+  } else {
+    // Wenn bereits umgeschaltet, mache die Änderungen rückgängig
+    if (itemsColumn) {
+      itemsColumn.style.display = "block"; // Zeige das 'items-column'-Element wieder an
+    }
+
+    appElement.classList.add("app", "grid"); // Füge die Klassen 'app' und 'grid' zum 'app'-Element wieder hinzu
+    navigationElement.style.display = "block"; // Zeige das 'navigation'-Element wieder an
+    editorColumn.style.height = "auto"; // Setze die Höhe von 'editor-column' zurück
+
+    // Setze isToggled zurück auf false
+    isToggled = false;
+  }
+});
+
 // Füge eine Hover- und Focus-Effekte hinzu
 button.addEventListener("mouseenter", () => {
   button.style.backgroundColor = "#0056b3"; // Dunkleres Blau beim Hover
@@ -63,12 +100,3 @@ button.classList.add("modern-button");
 
 // Füge den Button als erstes Kind des Elements 'editor-title-bar' hinzu
 titleBar.prepend(button);
-
-
-// Button click Event
-document.getElementById("items-column").remove();
-document.getElementById("app").classList.remove("app", "grid");
-document.getElementById("navigation").style.display="none";
-document.getElementById("editor-column").style.height="100vh";
-
-// But with revertion
