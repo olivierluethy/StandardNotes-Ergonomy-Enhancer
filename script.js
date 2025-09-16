@@ -1,0 +1,73 @@
+document.getElementById("items-column").remove();
+document.getElementById("app").classList.remove("app", "grid");
+document.getElementById("navigation").style.display="none";
+document.getElementById("editor-column").style.height="100vh";
+
+// document.getElementById("editor-title-bar").style.display="flex";
+// document.getElementById("note-title-editor").style.marginRight="5rem";
+
+// Hole das Element mit der ID 'editor-title-bar'
+const titleBar = document.getElementById("editor-title-bar");
+
+// Erstelle ein neues Button-Element
+const button = document.createElement("button");
+
+// Erstelle die 3 Striche für das Burger-Menü
+const bar1 = document.createElement("span");
+const bar2 = document.createElement("span");
+const bar3 = document.createElement("span");
+
+// Füge die Striche zum Button hinzu
+button.appendChild(bar1);
+button.appendChild(bar2);
+button.appendChild(bar3);
+
+// Füge Styling direkt zum Button hinzu (Inline-Styling)
+button.style.backgroundColor = "#007bff"; // Blau
+button.style.color = "white"; // Weißer Text
+button.style.marginRight = "1rem";
+button.style.fontSize = "14px"; // Kleinere Schriftgröße
+button.style.padding = "6px 12px"; // Kleinere Innenabstände
+button.style.border = "none"; // Kein Rahmen
+button.style.borderRadius = "8px"; // Abgerundete Ecken
+button.style.cursor = "pointer"; // Zeigt den Cursor als Hand an
+button.style.transition = "all 0.3s ease"; // Sanfte Übergänge
+button.style.display = "flex"; // Flexbox für vertikale Ausrichtung der Striche
+button.style.flexDirection = "column"; // Striche untereinander anordnen
+button.style.justifyContent = "center"; // Zentriert die Striche vertikal
+button.style.alignItems = "center"; // Zentriert die Striche horizontal
+
+// Füge Styling für die Striche hinzu
+const bars = [bar1, bar2, bar3];
+bars.forEach(bar => {
+  bar.style.width = "24px"; // Kleinere Breite der Striche
+  bar.style.height = "3px"; // Kleinere Höhe der Striche
+  bar.style.backgroundColor = "white"; // Weiß für die Striche
+  bar.style.margin = "3px 0"; // Weniger Abstand zwischen den Strichen
+  bar.style.transition = "all 0.3s ease"; // Sanfte Übergänge für Transformation
+});
+
+// Füge eine Hover- und Focus-Effekte hinzu
+button.addEventListener("mouseenter", () => {
+  button.style.backgroundColor = "#0056b3"; // Dunkleres Blau beim Hover
+  button.style.transform = "translateY(-2px)"; // Leichtes Anheben beim Hover
+});
+
+button.addEventListener("mouseleave", () => {
+  button.style.backgroundColor = "#007bff"; // Zurück zum ursprünglichen Blau
+  button.style.transform = "translateY(0)"; // Zurück zum normalen Zustand
+});
+
+button.addEventListener("focus", () => {
+  button.style.boxShadow = "0 0 0 2px rgba(0, 123, 255, 0.5)"; // Schattierung bei Fokus
+});
+
+button.addEventListener("blur", () => {
+  button.style.boxShadow = "none"; // Entferne den Schatten, wenn der Fokus weg ist
+});
+
+// Füge eine Klasse zum Button hinzu (optional für weiteres CSS oder spätere Stile)
+button.classList.add("modern-button");
+
+// Füge den Button als erstes Kind des Elements 'editor-title-bar' hinzu
+titleBar.prepend(button);
