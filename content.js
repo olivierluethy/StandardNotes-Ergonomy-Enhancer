@@ -6,7 +6,7 @@ function ensureButtonExists() {
   if (!existingButton) {
     // Erstelle den Button nur, wenn er noch nicht existiert
     const button = document.createElement("button");
-    button.title="Close Sidenav";
+    button.title = "Close Sidenav";
 
     // Erstelle die 3 Striche für das Burger-Menü
     const bar1 = document.createElement("span");
@@ -35,13 +35,45 @@ function ensureButtonExists() {
 
     // Füge Styling für die Striche hinzu
     const bars = [bar1, bar2, bar3];
-    bars.forEach(bar => {
+    bars.forEach((bar) => {
       bar.style.width = "24px"; // Kleinere Breite der Striche
       bar.style.height = "3px"; // Kleinere Höhe der Striche
       bar.style.backgroundColor = "white"; // Weiß für die Striche
       bar.style.margin = "3px 0"; // Weniger Abstand zwischen den Strichen
       bar.style.transition = "all 0.3s ease"; // Sanfte Übergänge für Transformation
     });
+
+    // Erstelle Tooltip
+    const tooltip = document.createElement("span");
+    tooltip.classList.add("tooltip");
+    tooltip.textContent = "Click to close Sidenav";
+    button.appendChild(tooltip);
+
+    // Tooltip CSS Styling
+    const tooltipStyle = document.createElement("style");
+    tooltipStyle.textContent = `
+      .tooltip {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        top: 120%; /* Tooltip erscheint unterhalb des Buttons */
+        left: 145%;
+        transform: translateX(-50%);
+        background-color: #333;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        white-space: nowrap;
+      }
+
+      .modern-button:hover .tooltip {
+        visibility: visible;
+        opacity: 1;
+      }
+    `;
+    document.head.appendChild(tooltipStyle);
 
     // Zustand für das Umschalten (ob die Änderungen angewendet sind oder nicht)
     let isToggled = false;
@@ -65,8 +97,8 @@ function ensureButtonExists() {
 
         // Setze isToggled auf true, damit beim nächsten Klick die Änderungen rückgängig gemacht werden
         isToggled = true;
-
-        button.title="Open Sidenav";
+        button.title = "Open Sidenav"; // Tooltip anpassen
+        tooltip.textContent = "Click to open Sidenav";
       } else {
         // Wenn bereits umgeschaltet, mache die Änderungen rückgängig
         if (itemsColumn) {
@@ -79,8 +111,8 @@ function ensureButtonExists() {
 
         // Setze isToggled zurück auf false
         isToggled = false;
-
-        button.title="Close Sidenav";
+        button.title = "Close Sidenav"; // Tooltip anpassen
+        tooltip.textContent = "Click to close Sidenav";
       }
     });
 
