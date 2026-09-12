@@ -1,4 +1,15 @@
-# Modern Sidebar Toggle Extension for StandardNotes
+<div align="center">
+  <img src="icons/icon.png" alt="StandardNotes Ergonomy Enhancer logo" width="140" />
+  <h1>StandardNotes Ergonomy Enhancer</h1>
+  <p><b>A one-click sidebar toggle for a distraction-free StandardNotes.</b><br/>A lightweight browser extension that adds a modern hamburger button to hide or reveal the StandardNotes sidebar and reclaim screen space.</p>
+  <p>
+    <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
+    <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black">
+    <img alt="Browser Extension" src="https://img.shields.io/badge/Browser-Extension-4285F4?logo=googlechrome&logoColor=white">
+  </p>
+</div>
+
+---
 
 This extension is designed to enhance the user experience of the [StandardNotes](https://app.standardnotes.com) web application by providing a clean, interactive button that allows users to toggle the visibility of the sidebar and adjust the page layout dynamically. The extension improves workflow efficiency by offering a quick way to hide or reveal the sidebar with a smooth user interface.
 
@@ -135,22 +146,20 @@ Feel free to modify and extend the functionality to suit your specific needs!
 
 ---
 
-## License
-
-This extension is free to use. You can modify or extend it according to your preferences.
-
----
-
 ## Acknowledgments
 
 * [StandardNotes](https://standardnotes.com) for providing an excellent and secure note-taking platform.
 * This extension is open-source and designed for personal use or contribution to others.
 
+---
 
-### **Key Points of the `README.md`**:
-- **Clear Overview**: Explains the purpose of the extension, its features, and the motivation behind its creation.
-- **Detailed Instructions**: It describes the setup process, how to use the extension, and provides an example of how to integrate it into a custom browser extension.
-- **Code Explanation**: The breakdown explains how the code works, including button creation, CSS styling, and JavaScript functionality.
-- **Browser Extension**: It gives a guide on how to convert the script into a fully functioning browser extension with the `manifest.json` setup.
+## License
+
+Released under the [MIT License](LICENSE) © 2026 Olivier Lüthy. You're free to use, modify and distribute this
+software, including commercially, as long as the copyright notice and license are included.
+
+## Author
+
+Built by **Olivier Lüthy** — [GitHub](https://github.com/olivierluethy).
 
 This should serve as a comprehensive guide for both end users and developers who want to understand, use, or contribute to the extension.
